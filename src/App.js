@@ -1,4 +1,5 @@
 import './App.css';
+import HelloWorld from './components/HelloWord'
 
 function App() {
 
