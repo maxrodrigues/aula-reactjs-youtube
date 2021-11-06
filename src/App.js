@@ -20,8 +20,6 @@ function App() {
       <p>Soma: {sum(2, 2)}</p>
 
       <img src={url} alt="Minha imagem"/>
-
-      <HelloWorld />
     </div>
   );
 }
