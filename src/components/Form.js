@@ -1,8 +1,13 @@
+import { useState } from "react";
+
 function Form() {
+    const [name, setName] = useState();
+    const [password, setPassword] = useState();
+
     function cadastrarUsuario(e) {
         e.preventDefault();
 
-        console.log(`Enviou o form`);
+        console.log(`A senha do ${name} é ${password}`);
     }
 
     return (
@@ -14,14 +19,16 @@ function Form() {
                         type="text"
                         name="nome"
                         placeholder="Digite seu nome"
+                        onChange={(e) => setName(e.target.value)}
                     />
                 </div>
                 <div>
-                    <label htmlFor="email">E-mail</label>
+                    <label htmlFor="password">E-mail</label>
                     <input
-                        type="email"
-                        name="email"
+                        type="password"
+                        name="password"
                         placeholder="Digite seu e-mail"
+                        onChange={(e) => setPassword(e.target.value)}
                     />
                 </div>
                 <div>
