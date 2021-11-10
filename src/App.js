@@ -1,30 +1,23 @@
 import "./App.css";
-import { useState } from "react";
-import SeuNome from "./components/SeuNome";
-import Saudacao from "./components/Saudacao";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/layout/Navbar";
+import Footer from "./components/layout/Footer";
+import Home from "./components/pages/Home";
+import Empresa from "./components/pages/Empresa";
+import Contato from "./components/pages/Contato";
 
 function App() {
-    const [nome, setNome] = useState();
-
     return (
-        <div className="App">
-            <h1>State Lift</h1>
-            <SeuNome setNome={setNome} />
-            <Saudacao nome={nome} />
-        </div>
+        <Router>
+            <Navbar />
+            <Routes>
+                <Route exact path="/" element={<Home />} />
+                <Route path="/empresa" element={<Empresa />} />
+                <Route path="/contato" element={<Contato />} />
+            </Routes>
+            <Footer />
+        </Router>
     );
 }
 
 export default App;
-
-// O CONCEITO AQUI, É QUE OS COMPONENTES PODEM "COMPARTILHAR"
-// DADOS(ESTADOS), FAZENDO DESSA FORMA, QUE É CENTRALIZAR AS
-// COISAS NO COMPONENTE PAI.
-
-// NO EXEMPLO ACIMA VEMOS QUE EXISTE UM COMPONENTE ONDE O NOME
-// SERÁ DIGITADO, E OUTRO COMṔONENTE RESPONSÁVEL POR GERAR A
-// SAUDAÇÃO.
-
-// O NOME DIGITADO NO COMPONENTE "SeuNome" É ENVIADO AO COMPONENTE
-// PAI QUE COMPARTILHA COM O "Saudacao", FAZENDO ASSIM COM QUE
-// O NOME DIGITADO SEJA IMPRESSO NA SAUDAÇÃO DO OUTRO COMPONENTE
